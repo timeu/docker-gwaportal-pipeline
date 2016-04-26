@@ -1,7 +1,7 @@
 # Dockerfile for pygwas-celery worker
 # Version 0.1
 
-FROM timeu/gwas_base
+FROM timeu/docker-gwas-base
 MAINTAINER Uemit Seren <uemit.seren@gmail.com>
 
 WORKDIR /conf
@@ -13,7 +13,7 @@ RUN mkdir /log && mkdir /DATA mkdir /GENOTYPE
 RUN groupadd -r celery && useradd -r -g celery celery 
 RUN chown celery:celery -R /log /DATA
 
-RUN /env/bin/pip install 'gwaportalpipeline>=0.2.7'
+RUN /env/bin/pip install 'gwaportalpipeline>=0.2.8'
 
 ADD celeryconfig.py /conf/celeryconfig.py
 
